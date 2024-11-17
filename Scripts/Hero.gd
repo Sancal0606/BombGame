@@ -26,4 +26,4 @@ func _process(delta):
 			$"..".next_turn.emit()
 		
 func react():
-	print("game over")
+	get_tree().reload_current_scene()

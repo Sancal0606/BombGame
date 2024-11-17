@@ -7,7 +7,6 @@ var sign_tick
 var has_expand = false
 
 func initialize(_signal,_index,_originPos, _offSet):
-	print("init: "+ str((_originPos + _offSet)/16))
 	_signal.connect(tick) 
 	sign_tick = _signal
 	index = _index
@@ -30,4 +29,4 @@ func tick():
 func _on_area_entered(area):
 	if area.is_in_group("explosion"):
 		area.react()
-	queue_free()
+	#queue_free()

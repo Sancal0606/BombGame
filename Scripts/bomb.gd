@@ -30,7 +30,6 @@ func boom():
 		$"..".add_child(explosion_top)
 	
 	if !$"..".IsOccupied(position + Vector2(16,0)):
-		print("Hello")
 		explosion_right.initialize($"..".next_turn,3,position,Vector2(16,0))
 		$"..".add_child(explosion_right)
 
@@ -44,4 +43,9 @@ func boom():
 	
 	$"..".add_child(explosion_center)
 	
+	queue_free()
+
+
+func _on_area_entered(area):
+	print("Desarm")
 	queue_free()

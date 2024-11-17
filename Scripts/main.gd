@@ -5,6 +5,7 @@ signal next_turn
 var grid_width = 9
 var grid_height = 7
 @export var elements: Array[Node] = []
+@export var citizens: Array[Node] = []
 var grid = []
 
 func _ready():
@@ -18,10 +19,6 @@ func _ready():
 		var vecPos = GetGridPosition(element.position.x,element.position.y)
 		grid[vecPos.y][vecPos.x] = element
 		
-	for i in range(grid_height):
-		for j in range(grid_width):
-			if grid[i][j]:
-				print(grid[i][j].position)
 	
 func GetGridPosition(x,y):
 	return Vector2(x / 16, -y / 16)
@@ -34,15 +31,17 @@ func _process(delta):
 
 func IsOccupied(_pos):
 	if _pos.x/16 < 0 or _pos.x/16 >= grid_width:
-		print("x" + str(_pos/16))
 		return true
 		
 	if -_pos.y/16 < 0 or -_pos.y/16 >= grid_height:
-		print("s" + str(_pos/16))
 		return true
 		
 	if (grid[-_pos.y / 16][_pos.x / 16]):
-		print("o" + str(grid[-_pos.y / 16][_pos.x / 16]))	
 		return true
 		
 	return false
+
+func save_citizen(_citizen):
+	citizens.erase(_citizen)
+	if citizens.size() <= 0:
+		print("Next level")

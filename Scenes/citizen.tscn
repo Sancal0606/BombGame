@@ -30,16 +30,19 @@ size = Vector2(14, 14)
 
 [node name="Citizen" type="Area2D" groups=["explosion"]]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_hyndl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_mv3of")
 autoplay = "default"
-frame_progress = 0.411769
+frame_progress = 0.700628
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_4mn43")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
