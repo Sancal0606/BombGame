@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://ccer3guxnbr3q"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_axq6j"]
+[ext_resource type="PackedScene" uid="uid://puhuki2rp3of" path="res://Scenes/bomb.tscn" id="1_jlbjc"]
+[ext_resource type="PackedScene" uid="uid://rcps6afsx0d7" path="res://Scenes/citizen.tscn" id="3_cdsv3"]
+[ext_resource type="PackedScene" uid="uid://bn68jt70vaym4" path="res://Scenes/wall.tscn" id="4_4sfge"]
+[ext_resource type="Texture2D" uid="uid://cy31aam35xted" path="res://assets/tiles.png" id="5_6y220"]
+[ext_resource type="PackedScene" uid="uid://dbtirouip10qc" path="res://Scenes/hero.tscn" id="6_87yww"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="7_84hl6"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_3rmq3"]
+[ext_resource type="PackedScene" uid="uid://benchkjk5tfgw" path="res://Scenes/Levels/level2.tscn" id="9_la2bj"]
+[ext_resource type="Texture2D" uid="uid://cdbmktlwnkl7p" path="res://assets/square.png" id="10_a0kks"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gcdnj"]
+texture = ExtResource("5_6y220")
+4:1/0 = 0
+4:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m8vx7"]
+sources/0 = SubResource("TileSetAtlasSource_gcdnj")
+
+[sub_resource type="Animation" id="Animation_opfqf"]
+resource_name = "next_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextLevel/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(386.75, -39), Vector2(72, -39)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7i3r"]
+_data = {
+"next_level": SubResource("Animation_opfqf")
+}
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("elements", "citizens", "bombs")]
+script = ExtResource("1_axq6j")
+grid_height = 5
+elements = [NodePath("Wall"), NodePath("Wall2")]
+citizens = [NodePath("Citizen"), NodePath("Citizen2")]
+bombs = [NodePath("Bomb")]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(80, -48)
+tile_set = SubResource("TileSet_m8vx7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 262144, 1, -65536, 262144, 1, 65536, 262144, 1, 131070, 262144, 1, 65535, 262144, 1, -65539, 262144, 1, -4, 262144, 1, 131068, 262144, 1, 65533, 262144, 1, 196605, 262144, 1, 196607, 262144, 1, -131071, 262144, 1, -65534, 262144, 1, 1, 262144, 1, 65538, 262144, 1, 131073, 262144, 1, -65540, 262144, 0, -3, 262144, 0, 65532, 262144, 0, 65534, 262144, 0, -65538, 262144, 0, -1, 262144, 0, -131072, 262144, 0, -65535, 262144, 0, -131070, 262144, 0, 2, 262144, 0, 0, 262144, 0, 131071, 262144, 0, 131069, 262144, 0, 196604, 262144, 0, 196606, 262144, 0, 131072, 262144, 0, 65537, 262144, 0, 131074, 262144, 0, -65537, 262144, 1, -65541, 262144, 1, 65531, 262144, 1, 196603, 262144, 1, 131075, 262144, 1, 3, 262144, 1, -131069, 262144, 1, -65533, 262144, 0, -5, 262144, 0, 131067, 262144, 0, 65539, 262144, 0, -196616, 262144, 0, -196615, 262144, 0, -262139, 262144, 0, -262138, 262144, 0, -196602, 262144, 0, -196603, 262144, 0, -131068, 65536, 1, -131067, 262144, 0, -131066, 262144, 0, -65530, 262144, 0, 6, 262144, 0, 65542, 262144, 0, 131078, 262144, 0, 196614, 262144, 0, 262150, 262144, 0, 262149, 262144, 0, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -65531, 262144, 0, 5, 262144, 0, 65541, 262144, 0, 131077, 262144, 0, 196613, 262144, 0, 327673, 262144, 0, 327672, 262144, 0, 196600, 262144, 0, 131064, 262144, 0, 65528, 262144, 0, -8, 262144, 0, -65544, 262144, 0, -131080, 262144, 0, -131079, 262144, 0, -65543, 262144, 0, -65542, 196608, 1, -6, 196608, 1, 65529, 262144, 0, 131065, 262144, 0, 196601, 262144, 0, 262137, 262144, 0, 196602, 196608, 1, 131066, 196608, 1, 65530, 196608, 1, -7, 262144, 0, -131078, 0, 0, -131077, 0, 1, -131076, 0, 1, -131075, 0, 1, -131074, 0, 1, -131073, 0, 1, -196608, 0, 1, -196607, 0, 1, -196606, 0, 1, -196605, 0, 1, -196604, 131072, 0, 262138, 65536, 0, 262139, 131072, 1, 262140, 131072, 1, 262141, 131072, 1, 262142, 131072, 1, 262143, 131072, 1, 196608, 131072, 1, 196609, 131072, 1, 196610, 131072, 1, 196611, 131072, 1, 196612, 196608, 0, 262136, 262144, 0, 327674, 262144, 0, 327675, 262144, 0, 327676, 262144, 0, 327677, 262144, 0, 327678, 262144, 0, 327679, 262144, 0, 262144, 262144, 0, 262145, 262144, 0, 262146, 262144, 0, 262147, 262144, 0, 262148, 262144, 0, -196614, 262144, 0, -196613, 262144, 0, -196612, 262144, 0, -196611, 262144, 0, -196610, 262144, 0, -196609, 262144, 0, -262144, 262144, 0, -262143, 262144, 0, -262142, 262144, 0, -262141, 262144, 0, -262140, 262144, 0)
+
+[node name="Bomb" parent="." instance=ExtResource("1_jlbjc")]
+position = Vector2(96, -32)
+countdown = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(72, -40)
+zoom = Vector2(5, 5)
+
+[node name="Citizen" parent="." instance=ExtResource("3_cdsv3")]
+position = Vector2(128, -48)
+
+[node name="Citizen2" parent="." instance=ExtResource("3_cdsv3")]
+position = Vector2(128, -16)
+
+[node name="Wall" parent="." instance=ExtResource("4_4sfge")]
+position = Vector2(96, -48)
+
+[node name="Wall2" parent="." instance=ExtResource("4_4sfge")]
+position = Vector2(96, -16)
+
+[node name="Hero" parent="." instance=ExtResource("6_87yww")]
+position = Vector2(32, -32)
+
+[node name="GameOver" type="Node2D" parent="."]
+script = ExtResource("7_84hl6")
+
+[node name="Timer" type="Timer" parent="GameOver"]
+one_shot = true
+
+[node name="NextLevel" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h7i3r")
+}
+script = ExtResource("8_3rmq3")
+next_scene = ExtResource("9_la2bj")
+
+[node name="Sprite2D" type="Sprite2D" parent="NextLevel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(386.75, -39)
+scale = Vector2(24.4063, 8.84375)
+texture = ExtResource("10_a0kks")
+
+[connection signal="timeout" from="GameOver/Timer" to="GameOver" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="NextLevel" to="NextLevel" method="_on_animation_finished"]

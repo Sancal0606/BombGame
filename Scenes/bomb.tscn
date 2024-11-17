@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://puhuki2rp3of"]
+[gd_scene load_steps=9 format=3 uid="uid://puhuki2rp3of"]
 
 [ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_s5uit"]
 [ext_resource type="Texture2D" uid="uid://dic2i2hjqudpf" path="res://assets/bomb.png" id="1_ykv42"]
 [ext_resource type="FontFile" uid="uid://crog0m26lbvaq" path="res://assets/PixelOperator8.ttf" id="2_gahgq"]
+[ext_resource type="Texture2D" uid="uid://cdbmktlwnkl7p" path="res://assets/square.png" id="3_xnk2r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k57fm"]
 atlas = ExtResource("1_ykv42")
@@ -39,6 +40,12 @@ position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_uwxdm")
 autoplay = "default"
 frame_progress = 0.0176995
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.352941)
+position = Vector2(11.5, -4.5)
+scale = Vector2(0.4375, 0.5625)
+texture = ExtResource("3_xnk2r")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 8.0

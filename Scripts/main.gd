@@ -2,14 +2,17 @@ extends Node2D
 
 signal next_turn
 
-var grid_width = 9
-var grid_height = 7
+@export var grid_width = 9
+@export var grid_height = 7
 @export var elements: Array[Node] = []
 @export var citizens: Array[Node] = []
+@export var bombs: Array[Node] = []
 var grid = []
+var died = false
 
 func _ready():
-	$Bomb.initialize()
+	for bomb in bombs:
+		bomb.initialize()
 	for i in range(grid_height):
 		grid.append([])
 		for j in range(grid_width):
@@ -18,6 +21,7 @@ func _ready():
 	for element in elements:
 		var vecPos = GetGridPosition(element.position.x,element.position.y)
 		grid[vecPos.y][vecPos.x] = element
+		
 		
 	
 func GetGridPosition(x,y):
@@ -44,4 +48,4 @@ func IsOccupied(_pos):
 func save_citizen(_citizen):
 	citizens.erase(_citizen)
 	if citizens.size() <= 0:
-		print("Next level")
+		$Next_level.next_level()

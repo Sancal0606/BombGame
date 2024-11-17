@@ -1,13 +1,15 @@
 extends Node2D
 
+var died = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $"..".died:
+		position.y += delta * 100
+		return
 	if Input.is_action_just_pressed("Up"):
 		if(!$"..".IsOccupied(position + Vector2(0,-16))): 
 			position.y -= 16
@@ -26,4 +28,5 @@ func _process(delta):
 			$"..".next_turn.emit()
 		
 func react():
-	get_tree().reload_current_scene()
+	$"..".died = true
+	$"../GameOver".gameover()

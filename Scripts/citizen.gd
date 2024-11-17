@@ -1,9 +1,14 @@
 extends Node2D
 
 
+func _process(delta):
+	if $"..".died:
+		position.y += delta * 100
+
 func react():
 	print("game over")
-	get_tree().reload_current_scene()
+	$"../GameOver".gameover()
+	$"..".died = true
 
 
 
