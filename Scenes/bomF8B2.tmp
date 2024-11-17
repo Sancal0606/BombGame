@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://puhuki2rp3of"]
+
+[ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_s5uit"]
+[ext_resource type="Texture2D" uid="uid://dic2i2hjqudpf" path="res://assets/bomb.png" id="1_ykv42"]
+[ext_resource type="FontFile" uid="uid://crog0m26lbvaq" path="res://assets/PixelOperator8.ttf" id="2_gahgq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k57fm"]
+atlas = ExtResource("1_ykv42")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnmb"]
+atlas = ExtResource("1_ykv42")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwxdm"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_k57fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnmb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bomb" type="Node2D"]
+position = Vector2(4, 3)
+script = ExtResource("1_s5uit")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_uwxdm")
+autoplay = "default"
+frame_progress = 0.0176995
+
+[node name="Label" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 37.0
+offset_right = 123.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("2_gahgq")
+theme_override_font_sizes/font_size = 80
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbtirouip10qc"]
+
+[ext_resource type="Script" path="res://Scripts/Hero.gd" id="1_e55ge"]
+[ext_resource type="Texture2D" uid="uid://t4c15oo23d1h" path="res://assets/hero.png" id="1_fw8j2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0eya"]
+atlas = ExtResource("1_fw8j2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjckj"]
+atlas = ExtResource("1_fw8j2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48ret"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w0eya")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sjckj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6sx7"]
+size = Vector2(14, 14)
+
+[node name="Hero" type="Area2D" groups=["explosion"]]
+collision_layer = 2
+script = ExtResource("1_e55ge")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_48ret")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_m6sx7")

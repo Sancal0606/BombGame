@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://rcps6afsx0d7"]
+
+[ext_resource type="Texture2D" uid="uid://b5vkhci4v7lk5" path="res://assets/citizen.png" id="1_c5mrl"]
+[ext_resource type="Script" path="res://Scripts/citizen.gd" id="1_hyndl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewri"]
+atlas = ExtResource("1_c5mrl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk55t"]
+atlas = ExtResource("1_c5mrl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mv3of"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_dewri")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_dk55t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mn43"]
+size = Vector2(14, 14)
+
+[node name="Citizen" type="Area2D" groups=["explosion"]]
+collision_layer = 2
+script = ExtResource("1_hyndl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_mv3of")
+autoplay = "default"
+frame_progress = 0.411769
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_4mn43")
