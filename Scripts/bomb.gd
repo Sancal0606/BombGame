@@ -45,6 +45,9 @@ func boom():
 	
 	queue_free()
 
+func react():
+	boom()
+	
 
 func _on_area_entered(area):
 	print("Desarm")

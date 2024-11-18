@@ -2,6 +2,7 @@ extends Node2D
 
 signal next_turn
 
+@export var level_index = 0
 @export var grid_width = 9
 @export var grid_height = 7
 @export var elements: Array[Node] = []
@@ -10,7 +11,12 @@ signal next_turn
 var grid = []
 var died = false
 
+@export var menu_scene:PackedScene
+
 func _ready():
+	
+	$Control/level_info.text = "Level: " + str(level_index)
+	
 	for bomb in bombs:
 		bomb.initialize()
 	for i in range(grid_height):
@@ -49,3 +55,7 @@ func save_citizen(_citizen):
 	citizens.erase(_citizen)
 	if citizens.size() <= 0:
 		$Next_level.next_level()
+
+
+func _on_button_button_down():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

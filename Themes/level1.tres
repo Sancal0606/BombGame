@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bsnasectk4s4a"]
+
+[ext_resource type="FontFile" uid="uid://crog0m26lbvaq" path="res://assets/PixelOperator8.ttf" id="1_1a23a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qi60"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm607"]
+bg_color = Color(0, 0, 0, 0.678431)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t5nq"]
+bg_color = Color(0, 0, 0, 0.709804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsci7"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxvn7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgqkp"]
+bg_color = Color(0.12549, 0.156863, 0.239216, 1)
+
+[resource]
+Button/colors/icon_normal_color = Color(1, 1, 1, 0)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 0)
+Button/fonts/font = ExtResource("1_1a23a")
+Button/styles/disabled = SubResource("StyleBoxFlat_4qi60")
+Button/styles/focus = SubResource("StyleBoxFlat_nm607")
+Button/styles/hover = SubResource("StyleBoxFlat_0t5nq")
+Button/styles/normal = SubResource("StyleBoxFlat_fsci7")
+Button/styles/pressed = SubResource("StyleBoxFlat_oxvn7")
+Label/fonts/font = ExtResource("1_1a23a")
+Panel/styles/panel = SubResource("StyleBoxFlat_sgqkp")

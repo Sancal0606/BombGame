@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccer3guxnbr3q"]
+[gd_scene load_steps=17 format=3 uid="uid://ccer3guxnbr3q"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rhxvc"]
 [ext_resource type="Texture2D" uid="uid://cy31aam35xted" path="res://assets/tiles.png" id="2_q4574"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="8_ufkxb"]
 [ext_resource type="PackedScene" uid="uid://bsgl7g0v6lj8d" path="res://Scenes/Levels/level3.tscn" id="9_qohaf"]
 [ext_resource type="Texture2D" uid="uid://cdbmktlwnkl7p" path="res://assets/square.png" id="9_xsam5"]
+[ext_resource type="Theme" uid="uid://bsnasectk4s4a" path="res://Themes/level1.tres" id="11_3bl7b"]
+[ext_resource type="FontFile" uid="uid://crog0m26lbvaq" path="res://assets/PixelOperator8.ttf" id="12_dxjpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gcdnj"]
 texture = ExtResource("2_q4574")
@@ -49,6 +51,7 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("elements", "citizens", "bombs")]
 script = ExtResource("1_rhxvc")
+level_index = 2
 grid_height = 5
 elements = [NodePath("Wall"), NodePath("Wall2")]
 citizens = [NodePath("Citizen"), NodePath("Citizen2")]
@@ -105,5 +108,32 @@ position = Vector2(386.75, -39)
 scale = Vector2(24.4063, 8.84375)
 texture = ExtResource("9_xsam5")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -102.0
+offset_right = 4.0
+offset_bottom = -86.0
+theme = ExtResource("11_3bl7b")
+theme_override_fonts/font = ExtResource("12_dxjpc")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+
+[node name="level_info" type="Label" parent="Control"]
+offset_left = 133.0
+offset_top = -97.0
+offset_right = 178.0
+offset_bottom = -74.0
+theme_override_fonts/font = ExtResource("12_dxjpc")
+theme_override_font_sizes/font_size = 8
+text = "Level:1"
+
 [connection signal="timeout" from="GameOver/Timer" to="GameOver" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Next_level/Animator" to="Next_level" method="_on_animator_animation_finished"]
+[connection signal="button_down" from="Control/Button" to="." method="_on_button_button_down"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbm1j7jao3dxj"]
+[gd_scene load_steps=16 format=3 uid="uid://cbm1j7jao3dxj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_2w7lu"]
+[ext_resource type="PackedScene" uid="uid://d0uw6g2pam7i2" path="res://Scenes/menu.tscn" id="2_epoic"]
 [ext_resource type="Texture2D" uid="uid://cy31aam35xted" path="res://assets/tiles.png" id="2_gq1xs"]
 [ext_resource type="PackedScene" uid="uid://rcps6afsx0d7" path="res://Scenes/citizen.tscn" id="4_0hwjo"]
 [ext_resource type="PackedScene" uid="uid://dbtirouip10qc" path="res://Scenes/hero.tscn" id="6_56e16"]
@@ -49,9 +50,9 @@ _data = {
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("citizens")]
 script = ExtResource("1_2w7lu")
-level_index = 1
 grid_height = 1
 citizens = [NodePath("Citizen")]
+menu_scene = ExtResource("2_epoic")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(80, -16)
@@ -98,24 +99,13 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = -33.0
 offset_top = -71.0
-offset_right = 5.0
+offset_right = 38.0
 offset_bottom = -55.0
 theme = ExtResource("10_7438k")
 theme_override_fonts/font = ExtResource("9_8p6m1")
 theme_override_font_sizes/font_size = 8
 text = "Menu"
-
-[node name="level_info" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = -67.0
-offset_right = 174.0
-offset_bottom = -44.0
-theme_override_fonts/font = ExtResource("9_8p6m1")
-theme_override_font_sizes/font_size = 8
-text = "Level:1"
 
 [connection signal="timeout" from="GameOver/Timer" to="GameOver" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Next_level/Animator" to="Next_level" method="_on_animator_animation_finished"]
