@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5sw24aknkrf2"]
+[gd_scene load_steps=17 format=3 uid="uid://c5sw24aknkrf2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_vrald"]
 [ext_resource type="Texture2D" uid="uid://cy31aam35xted" path="res://assets/tiles.png" id="2_ht7l3"]
+[ext_resource type="PackedScene" uid="uid://d0uw6g2pam7i2" path="res://Scenes/menu.tscn" id="2_qpnar"]
 [ext_resource type="PackedScene" uid="uid://puhuki2rp3of" path="res://Scenes/bomb.tscn" id="3_alj1i"]
 [ext_resource type="PackedScene" uid="uid://rcps6afsx0d7" path="res://Scenes/citizen.tscn" id="4_le8ie"]
 [ext_resource type="PackedScene" uid="uid://dbtirouip10qc" path="res://Scenes/hero.tscn" id="6_r3wg7"]
@@ -55,6 +56,7 @@ grid_width = 5
 grid_height = 1
 citizens = [NodePath("Citizen")]
 bombs = [NodePath("Bomb")]
+menu_scene = ExtResource("2_qpnar")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(80, -16)
@@ -114,6 +116,7 @@ theme_override_font_sizes/font_size = 8
 text = "Menu"
 
 [node name="level_info" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 92.0
 offset_top = -67.0
 offset_right = 137.0

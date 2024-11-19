@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://rcps6afsx0d7"]
+[gd_scene load_steps=11 format=3 uid="uid://rcps6afsx0d7"]
 
 [ext_resource type="Texture2D" uid="uid://b5vkhci4v7lk5" path="res://assets/citizen.png" id="1_c5mrl"]
 [ext_resource type="Script" path="res://Scripts/citizen.gd" id="1_hyndl"]
+[ext_resource type="AudioStream" uid="uid://ccq8lb357rt4d" path="res://Sounds/save.wav" id="3_08rvo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dewri"]
 atlas = ExtResource("1_c5mrl")
@@ -25,6 +26,92 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_74etp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_16tqj"]
+resource_name = "save"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Save:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrg8g"]
+_data = {
+"RESET": SubResource("Animation_74etp"),
+"save": SubResource("Animation_16tqj")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mn43"]
 size = Vector2(14, 14)
 
@@ -40,9 +127,16 @@ autoplay = "default"
 frame_progress = 0.700628
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qrg8g")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_4mn43")
+
+[node name="Save" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_08rvo")
+bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

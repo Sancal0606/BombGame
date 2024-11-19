@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="BombGame"
-run/main_scene="res://Scenes/Levels/level1.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*res://Scenes/music.tscn"
 
 [display]
 

@@ -14,4 +14,5 @@ func react():
 
 func _on_area_entered(area):
 	$"..".save_citizen(self)
-	queue_free()
+	$AnimationPlayer.play("save")
+	#queue_free()

@@ -1,14 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0uw6g2pam7i2"]
+[gd_scene load_steps=17 format=3 uid="uid://d0uw6g2pam7i2"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_fjow6"]
 [ext_resource type="Theme" uid="uid://bsnasectk4s4a" path="res://Themes/level1.tres" id="2_52vyb"]
 [ext_resource type="FontFile" uid="uid://crog0m26lbvaq" path="res://assets/PixelOperator8.ttf" id="2_ifnev"]
+[ext_resource type="Texture2D" uid="uid://dtxl7en6l8jbm" path="res://assets/letter_b.png" id="4_jie77"]
+[ext_resource type="Texture2D" uid="uid://cbrytpa3epnn3" path="res://assets/letter_o.png" id="5_u1jfk"]
+[ext_resource type="Texture2D" uid="uid://bnr2tmuf303mh" path="res://assets/letter_m.png" id="6_icokv"]
+[ext_resource type="Texture2D" uid="uid://t4c15oo23d1h" path="res://assets/hero.png" id="7_ykn3r"]
+[ext_resource type="Texture2D" uid="uid://dic2i2hjqudpf" path="res://assets/bomb.png" id="8_fksvl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0qsu"]
 bg_color = Color(0.12549, 0.156863, 0.239216, 1)
 
 [sub_resource type="Theme" id="Theme_fbxmv"]
 Panel/styles/panel = SubResource("StyleBoxFlat_q0qsu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siwge"]
+atlas = ExtResource("7_ykn3r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o5j2"]
+atlas = ExtResource("7_ykn3r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6lpag"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_siwge")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_0o5j2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35rsl"]
+atlas = ExtResource("8_fksvl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g5qb"]
+atlas = ExtResource("8_fksvl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twpmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35rsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g5qb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -30,10 +79,10 @@ theme = SubResource("Theme_fbxmv")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 390.0
-offset_right = 712.0
-offset_bottom = 462.0
+offset_left = 441.0
+offset_top = 418.0
+offset_right = 713.0
+offset_bottom = 490.0
 theme = ExtResource("2_52vyb")
 theme_override_fonts/font = ExtResource("2_ifnev")
 theme_override_font_sizes/font_size = 64
@@ -41,14 +90,233 @@ text = "Start"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 495.0
-offset_right = 712.0
-offset_bottom = 567.0
+offset_left = 441.0
+offset_top = 523.0
+offset_right = 713.0
+offset_bottom = 595.0
 theme = ExtResource("2_52vyb")
 theme_override_fonts/font = ExtResource("2_ifnev")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
+
+[node name="bomb" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 637.0
+offset_top = 279.0
+offset_right = 637.0
+offset_bottom = 279.0
+scale = Vector2(0.9, 0.9)
+
+[node name="b" type="TextureRect" parent="bomb"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -300.0
+offset_right = -136.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jie77")
+
+[node name="o" type="TextureRect" parent="bomb"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -300.0
+offset_right = -42.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u1jfk")
+
+[node name="m" type="TextureRect" parent="bomb"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -300.0
+offset_right = 58.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_icokv")
+
+[node name="b2" type="TextureRect" parent="bomb"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -300.0
+offset_right = 160.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jie77")
+
+[node name="bomb2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 637.0
+offset_top = 410.0
+offset_right = 637.0
+offset_bottom = 410.0
+scale = Vector2(0.9, 0.9)
+
+[node name="b" type="TextureRect" parent="bomb2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -300.0
+offset_right = -136.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jie77")
+
+[node name="o" type="TextureRect" parent="bomb2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -300.0
+offset_right = -42.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u1jfk")
+
+[node name="m" type="TextureRect" parent="bomb2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -300.0
+offset_right = 58.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_icokv")
+
+[node name="b2" type="TextureRect" parent="bomb2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -300.0
+offset_right = 160.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jie77")
+
+[node name="boom" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 542.0
+offset_right = 640.0
+offset_bottom = 542.0
+scale = Vector2(0.9, 0.9)
+
+[node name="b" type="TextureRect" parent="boom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -300.0
+offset_right = -136.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jie77")
+
+[node name="o" type="TextureRect" parent="boom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -300.0
+offset_right = -42.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u1jfk")
+
+[node name="o2" type="TextureRect" parent="boom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -300.0
+offset_right = 50.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u1jfk")
+
+[node name="m" type="TextureRect" parent="boom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -300.0
+offset_right = 148.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_icokv")
+
+[node name="Hero" type="AnimatedSprite2D" parent="."]
+position = Vector2(303, 213)
+scale = Vector2(7.875, 7.875)
+sprite_frames = SubResource("SpriteFrames_6lpag")
+autoplay = "default"
+frame_progress = 0.0532209
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(829, 211)
+scale = Vector2(7.75, 7.75)
+sprite_frames = SubResource("SpriteFrames_twpmj")
+autoplay = "default"
+frame_progress = 0.501164
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

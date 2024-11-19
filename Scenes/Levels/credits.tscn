@@ -1,7 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://txvkfrttunwu"]
+[gd_scene load_steps=10 format=3 uid="uid://txvkfrttunwu"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_hpjtu"]
 [ext_resource type="Theme" uid="uid://bsnasectk4s4a" path="res://Themes/level1.tres" id="1_rgygf"]
+[ext_resource type="Texture2D" uid="uid://mgrfhfxas15a" path="res://assets/thanks.png" id="3_0m7iu"]
+[ext_resource type="Texture2D" uid="uid://f8om56s3how3" path="res://assets/playing.png" id="4_f0v7d"]
+[ext_resource type="Texture2D" uid="uid://dpwcx0ny1lp18" path="res://assets/for.png" id="5_f5pa7"]
+[ext_resource type="Texture2D" uid="uid://b5vkhci4v7lk5" path="res://assets/citizen.png" id="6_xqpar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucssl"]
+atlas = ExtResource("6_xqpar")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iclr4"]
+atlas = ExtResource("6_xqpar")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80rnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucssl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iclr4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -20,23 +46,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rgygf")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -460.0
-offset_top = -124.0
-offset_right = 460.0
-offset_bottom = -60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_rgygf")
-theme_override_font_sizes/font_size = 64
-text = "Thanks for playing"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
@@ -75,5 +84,119 @@ offset_bottom = 577.0
 theme = ExtResource("1_rgygf")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
+
+[node name="thanks" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 5.0
+offset_right = 799.0
+offset_bottom = 185.0
+texture = ExtResource("3_0m7iu")
+
+[node name="for" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 256.0
+offset_right = 782.0
+offset_bottom = 416.0
+texture = ExtResource("4_f0v7d")
+
+[node name="playing" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 156.0
+offset_right = 694.0
+offset_bottom = 276.0
+texture = ExtResource("5_f5pa7")
+
+[node name="Citizen4" type="AnimatedSprite2D" parent="."]
+position = Vector2(982.125, 369.125)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.1673
+
+[node name="Citizen5" type="AnimatedSprite2D" parent="."]
+position = Vector2(924.125, 351.125)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.151318
+
+[node name="Citizen6" type="AnimatedSprite2D" parent="."]
+position = Vector2(860.125, 361.125)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+
+[node name="Citizen7" type="AnimatedSprite2D" parent="."]
+position = Vector2(322, 361)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen8" type="AnimatedSprite2D" parent="."]
+position = Vector2(362, 380)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen9" type="AnimatedSprite2D" parent="."]
+position = Vector2(248, 343)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen10" type="AnimatedSprite2D" parent="."]
+position = Vector2(151, 350)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen11" type="AnimatedSprite2D" parent="."]
+position = Vector2(272, 374)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen12" type="AnimatedSprite2D" parent="."]
+position = Vector2(205, 374)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.778192
+flip_h = true
+
+[node name="Citizen" type="AnimatedSprite2D" parent="."]
+position = Vector2(1081, 405)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.547746
+
+[node name="Citizen2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1023, 387)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.531765
+
+[node name="Citizen3" type="AnimatedSprite2D" parent="."]
+position = Vector2(959, 397)
+scale = Vector2(7.26562, 7.26562)
+sprite_frames = SubResource("SpriteFrames_80rnl")
+autoplay = "default"
+frame_progress = 0.158645
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

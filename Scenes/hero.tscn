@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbtirouip10qc"]
+[gd_scene load_steps=8 format=3 uid="uid://dbtirouip10qc"]
 
 [ext_resource type="Script" path="res://Scripts/Hero.gd" id="1_e55ge"]
 [ext_resource type="Texture2D" uid="uid://t4c15oo23d1h" path="res://assets/hero.png" id="1_fw8j2"]
+[ext_resource type="AudioStream" uid="uid://c5f7kyca2kpts" path="res://Sounds/step.wav" id="3_vrfot"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0eya"]
 atlas = ExtResource("1_fw8j2")
@@ -40,3 +41,7 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_m6sx7")
+
+[node name="Step" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vrfot")
+bus = &"Sfx"

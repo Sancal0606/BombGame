@@ -3,6 +3,8 @@ extends Node2D
 @export var countdown = 3
 var explosion_scene = preload("res://Scenes/explosion.tscn")
 
+@export var desarm = false
+
 func _init():
 	pass
 	
@@ -11,6 +13,8 @@ func initialize():
 	$Label.text = str(countdown)
 	
 func tick():
+	if desarm:
+		return
 	countdown -= 1
 	$Label.text = str(countdown)
 	if countdown < 0:
@@ -42,13 +46,12 @@ func boom():
 		$"..".add_child(explosion_left)
 	
 	$"..".add_child(explosion_center)
-	
-	queue_free()
+	$AnimationPlayer.play("destroy")
 
 func react():
 	boom()
-	
+	queue_free()
 
 func _on_area_entered(area):
 	print("Desarm")
-	queue_free()
+	$AnimationPlayer.play("desarm")
