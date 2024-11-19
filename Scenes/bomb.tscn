@@ -300,10 +300,11 @@ texture = ExtResource("3_xnk2r")
 [node name="Label" type="Label" parent="."]
 offset_left = 8.0
 offset_top = -8.0
-offset_right = 15.0
-offset_bottom = 1.0
+offset_right = 69.0
+offset_bottom = 53.0
+scale = Vector2(0.105, 0.105)
 theme_override_fonts/font = ExtResource("2_gahgq")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 80
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1

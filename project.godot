@@ -21,7 +21,8 @@ Music="*res://Scenes/music.tscn"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

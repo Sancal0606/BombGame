@@ -15,8 +15,7 @@ var died = false
 
 func _ready():
 	
-	$Control/level_info.text = "Level: " + str(level_index)
-	
+	$CanvasLayer/level_info.text = "Level: " + str(level_index)
 	for bomb in bombs:
 		bomb.initialize()
 	for i in range(grid_height):
